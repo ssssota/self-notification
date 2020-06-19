@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self WebPushNotification Test</title>
+  <style>
+    #notif {
+      background: #009;
+      color: #fff;
+      position: fixed;
+      top: 50vh;
+      left: 50vw;
+      transform: translate(-50%, -50%);
+      width: 10em;
+      height: 2em;
+      text-align: center;
+      border-radius: 1em;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#" id="notif">Push!</a>
+  <script>
+    document.querySelector('#notif').addEventListener('click', async () => {
+      await Notification.requestPermission().catch(console.error)
+      const notif = new Notification('test')
+      console.log(notif)
+    })
+  </script>
+</body>
+</html>
